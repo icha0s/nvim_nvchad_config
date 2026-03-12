@@ -44,11 +44,4 @@ return {
       },
     },
   },
-  spec = {
-    -- ...
-    "rest-nvim/rest.nvim",
-  },
-  rocks = {
-    hererocks = true, -- you should enable this to get hererocks support
-  },
 }
