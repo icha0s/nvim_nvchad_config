@@ -1,8 +1,5 @@
 require("nvchad.configs.lspconfig").defaults()
 
-local servers = { "html", "cssls", "clangd", "lemminx" }
-vim.lsp.enable(servers)
-
 local nvlsp = require "nvchad.configs.lspconfig"
 local map = vim.keymap.set
 
@@ -27,6 +24,8 @@ local lsp_on_attach = function(_, bufnr)
   end, { desc = "Actions" })
 end
 
+local servers = { "html", "cssls", "clangd", "ts_ls", "pyright" }
+
 for _, lsp in ipairs(servers) do
   vim.lsp.config(lsp, {
     on_attach = lsp_on_attach,
@@ -35,17 +34,4 @@ for _, lsp in ipairs(servers) do
   })
 end
 
-vim.lsp.config.ts_ls = {
-  on_attach = lsp_on_attach,
-  on_init = nvlsp.on_init,
-  capabilities = nvlsp.capabilities,
-}
-vim.lsp.enable "ts_ls"
-
-vim.lsp.config.pyright = {
-  on_attach = lsp_on_attach,
-  on_init = nvlsp.on_init,
-  capabilities = nvlsp.capabilities,
-  filetypes = { "python" },
-}
-vim.lsp.enable "pyright"
+vim.lsp.enable(servers)

@@ -5,7 +5,7 @@ return {
     },
     {
         "stevearc/conform.nvim",
-        event = "BufWritePre", -- uncomment for format on save
+        event = "BufWritePre",
         opts = require "configs.conform",
     },
     {
@@ -63,7 +63,6 @@ return {
 
                 -- python
                 "pyright",
-                "black",
                 "ruff",
                 "isort",
             },
@@ -93,7 +92,6 @@ return {
             require("nvim-ts-autotag").setup()
         end,
     },
-    { "tpope/vim-fugitive" },
     {
         "rbong/vim-flog",
         dependencies = { "tpope/vim-fugitive" },
@@ -144,7 +142,7 @@ return {
     {
         "folke/todo-comments.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
-        lazy = false,
+        event = "VeryLazy",
         config = function()
             require("todo-comments").setup()
         end,
@@ -158,18 +156,17 @@ return {
     },
     {
         "abidibo/nvim-httpyac",
-        lazy = false,
-        config = function()
-            require("nvim-httpyac").setup {
-                output_view = "vertical", -- "vertical" | "horizontal"
-            }
-            -- if you want to set up the keymaps
-            vim.keymap.set("n", "<Leader>rq", "<cmd>:NvimHttpYac<CR>", { desc = "Run request" })
-            vim.keymap.set("n", "<Leader>rr", "<cmd>:NvimHttpYacAll<CR>", { desc = "Run all requests" })
-            vim.keymap.set("n", "<Leader>rp", "<cmd>:NvimHttpYacPicker<CR>", { desc = "Run named request" })
-            vim.keymap.set("n", "<Leader>re", "<cmd>:NvimHttpYacEnv<CR>", { desc = "Select environment" })
-            vim.keymap.set("n", "<Leader>rc", "<cmd>:NvimHttpYacEnvClear<CR>", { desc = "Clear environment" })
-        end,
+        cmd = { "NvimHttpYac", "NvimHttpYacAll", "NvimHttpYacPicker", "NvimHttpYacEnv", "NvimHttpYacEnvClear" },
+        keys = {
+            { "<Leader>rq", "<cmd>NvimHttpYac<CR>", desc = "Run request" },
+            { "<Leader>rr", "<cmd>NvimHttpYacAll<CR>", desc = "Run all requests" },
+            { "<Leader>rp", "<cmd>NvimHttpYacPicker<CR>", desc = "Run named request" },
+            { "<Leader>re", "<cmd>NvimHttpYacEnv<CR>", desc = "Select environment" },
+            { "<Leader>rc", "<cmd>NvimHttpYacEnvClear<CR>", desc = "Clear environment" },
+        },
+        opts = {
+            output_view = "vertical",
+        },
     },
     {
         "aznhe21/actions-preview.nvim",
@@ -185,27 +182,12 @@ return {
         },
     },
     {
-        "coder/claudecode.nvim",
-        dependencies = { "folke/snacks.nvim" },
-        config = true,
-        keys = {
-            { "<leader>a", nil, desc = "AI/Claude Code" },
-            { "<leader>ac", "<cmd>ClaudeCode<cr>", desc = "Toggle Claude" },
-            { "<leader>af", "<cmd>ClaudeCodeFocus<cr>", desc = "Focus Claude" },
-            { "<leader>ar", "<cmd>ClaudeCode --resume<cr>", desc = "Resume Claude" },
-            { "<leader>aC", "<cmd>ClaudeCode --continue<cr>", desc = "Continue Claude" },
-            { "<leader>am", "<cmd>ClaudeCodeSelectModel<cr>", desc = "Select Claude model" },
-            { "<leader>ab", "<cmd>ClaudeCodeAdd %<cr>", desc = "Add current buffer" },
-            { "<leader>as", "<cmd>ClaudeCodeSend<cr>", mode = "v", desc = "Send to Claude" },
-            {
-                "<leader>as",
-                "<cmd>ClaudeCodeTreeAdd<cr>",
-                desc = "Add file",
-                ft = { "NvimTree", "neo-tree", "oil", "minifiles", "netrw" },
-            },
-            -- Diff management
-            { "<leader>aa", "<cmd>ClaudeCodeDiffAccept<cr>", desc = "Accept diff" },
-            { "<leader>ad", "<cmd>ClaudeCodeDiffDeny<cr>", desc = "Deny diff" },
-        },
+      "iamcco/markdown-preview.nvim",
+      cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+      build = "cd app && npm install",
+      init = function()
+        vim.g.mkdp_filetypes = { "markdown" }
+      end,
+      ft = { "markdown" },
     },
 }

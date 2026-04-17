@@ -1,5 +1,7 @@
 require "nvchad.options"
 
+vim.opt.textwidth = 0
+
 -- add yours here!
 -- local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 -- for type, icon in pairs(signs) do

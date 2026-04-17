@@ -37,14 +37,4 @@ M.base46 = {
   },
 }
 
--- M.nvdash = { load_on_startup = true }
-M.ui = {
-  -- statusline = {
-  --   theme = "vscode_colored",
-  -- },
-  -- tabufline = {
-  --   lazyload = false
-  -- }
-}
-
 return M

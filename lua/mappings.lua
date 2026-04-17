@@ -17,8 +17,18 @@ map("n", "|", "<cmd>vsplit<CR>", { desc = "Vertical split" })
 map("n", "<leader>ds", "<cmd>Telescope diagnostics<cr>", { desc = "Diagnostics" })
 map("n", "gd", "<cmd>Telescope lsp_definitions<cr>", { desc = "Go to definition" })
 map("n", "gr", "<cmd>Telescope lsp_references<cr>", { desc = "Go to reference" })
-map("n", "<leader>ic", "<cmd>Telescope lsp_incoming_calls<cr>", { desc = "Lists LSP incoming calls for word under the cursor" })
-map("n", "<leader>oc", "<cmd>Telescope lsp_outgoing_calls<cr>", { desc = "Lists LSP outgoing calls for word under the cursor" })
+map(
+  "n",
+  "<leader>ic",
+  "<cmd>Telescope lsp_incoming_calls<cr>",
+  { desc = "Lists LSP incoming calls for word under the cursor" }
+)
+map(
+  "n",
+  "<leader>oc",
+  "<cmd>Telescope lsp_outgoing_calls<cr>",
+  { desc = "Lists LSP outgoing calls for word under the cursor" }
+)
 map("n", "<leader>ts", "<cmd>Telescope treesitter<cr>", { desc = "Lists Function names, variables" })
 
 map("n", "gD", vim.lsp.buf.declaration, { desc = "Go to declaration" })
@@ -35,7 +45,6 @@ map("n", "<leader>gf", "<cmd>DiffviewFileHistory<CR>", { desc = "Git File Histor
 map("n", "<leader>gc", "<cmd>DiffviewOpen HEAD~1<CR>", { desc = "Git Last Commit" })
 map("n", "<leader>ga", "<cmd>Telescope git_commits<cr>", { desc = "Lists git commits with diff preview" })
 map("n", "<leader>gt", "<cmd>Telescope git_status<cr>", { desc = "Lists git status" })
-
 
 -- Tabs
 map("n", "<leader>tq", "<cmd>tabclose<CR>", { desc = "Tab - close" })
