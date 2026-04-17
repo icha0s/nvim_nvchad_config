@@ -18,16 +18,16 @@ map("n", "<leader>ds", "<cmd>Telescope diagnostics<cr>", { desc = "Diagnostics" 
 map("n", "gd", "<cmd>Telescope lsp_definitions<cr>", { desc = "Go to definition" })
 map("n", "gr", "<cmd>Telescope lsp_references<cr>", { desc = "Go to reference" })
 map(
-  "n",
-  "<leader>ic",
-  "<cmd>Telescope lsp_incoming_calls<cr>",
-  { desc = "Lists LSP incoming calls for word under the cursor" }
+    "n",
+    "<leader>ic",
+    "<cmd>Telescope lsp_incoming_calls<cr>",
+    { desc = "Lists LSP incoming calls for word under the cursor" }
 )
 map(
-  "n",
-  "<leader>oc",
-  "<cmd>Telescope lsp_outgoing_calls<cr>",
-  { desc = "Lists LSP outgoing calls for word under the cursor" }
+    "n",
+    "<leader>oc",
+    "<cmd>Telescope lsp_outgoing_calls<cr>",
+    { desc = "Lists LSP outgoing calls for word under the cursor" }
 )
 map("n", "<leader>ts", "<cmd>Telescope treesitter<cr>", { desc = "Lists Function names, variables" })
 
@@ -53,43 +53,43 @@ map("n", "<leader>tt", "<cmd>tabnext<CR>", { desc = "Tab - next" })
 
 map("v", ">", ">gv", { desc = "indent" })
 map("n", "<leader>cx", function()
-  require("nvchad.tabufline").closeAllBufs()
+    require("nvchad.tabufline").closeAllBufs()
 end, { desc = "Close All Buffers" })
 
 map({ "n", "t" }, "<F7>", function()
-  require("nvchad.term").toggle { pos = "float", id = "floatTerm" }
+    require("nvchad.term").toggle { pos = "float", id = "floatTerm" }
 end, { desc = "Toggle floating term" })
 
 map("n", "]g", function()
-  require("gitsigns").next_hunk()
+    require("gitsigns").next_hunk()
 end, { desc = "Next Git hunk" })
 map("n", "[g", function()
-  require("gitsigns").prev_hunk()
+    require("gitsigns").prev_hunk()
 end, { desc = "Previous Git hunk" })
 map("n", "<leader>gb", function()
-  require("gitsigns").blame_line()
+    require("gitsigns").blame_line()
 end, { desc = "View Git blame" })
 map("n", "<leader>gB", function()
-  require("gitsigns").blame_line { full = true }
+    require("gitsigns").blame_line { full = true }
 end, { desc = "View Full Git blame" })
 map("n", "<leader>gp", function()
-  require("gitsigns").preview_hunk()
+    require("gitsigns").preview_hunk()
 end, { desc = "Preview Git hunk" })
 map("n", "<leader>gh", function()
-  require("gitsigns").reset_hunk()
+    require("gitsigns").reset_hunk()
 end, { desc = "Reset Git hunk" })
 map("n", "<leader>gr", function()
-  require("gitsigns").reset_buffer()
+    require("gitsigns").reset_buffer()
 end, { desc = "Reset Git buffer" })
 map("n", "<leader>gs", function()
-  require("gitsigns").stage_hunk()
+    require("gitsigns").stage_hunk()
 end, { desc = "Stage Git hunk" })
 map("n", "<leader>gS", function()
-  require("gitsigns").stage_buffer()
+    require("gitsigns").stage_buffer()
 end, { desc = "Stage Git buffer" })
 map("n", "<leader>gu", function()
-  require("gitsigns").undo_stage_hunk()
+    require("gitsigns").undo_stage_hunk()
 end, { desc = "Unstage Git hunk" })
 map("n", "<leader>gd", function()
-  require("gitsigns").diffthis()
+    require("gitsigns").diffthis()
 end, { desc = "View Git diff" })

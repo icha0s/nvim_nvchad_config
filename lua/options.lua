@@ -10,15 +10,17 @@ vim.opt.textwidth = 0
 -- end
 
 vim.diagnostic.config {
-  signs = {
-    text = {
-      [vim.diagnostic.severity.ERROR] = " ",
-      [vim.diagnostic.severity.WARN] = " ",
-      [vim.diagnostic.severity.HINT] = " ",
-      [vim.diagnostic.severity.INFO] = " ",
+    signs = {
+        text = {
+            [vim.diagnostic.severity.ERROR] = " ",
+            [vim.diagnostic.severity.WARN] = " ",
+            [vim.diagnostic.severity.HINT] = " ",
+            [vim.diagnostic.severity.INFO] = " ",
+        },
     },
-  },
 }
 
+vim.opt.colorcolumn = "120"
+vim.opt.relativenumber = true
 -- local o = vim.o
 -- o.cursorlineopt ='both' -- to enable cursorline!
