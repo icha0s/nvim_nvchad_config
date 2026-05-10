@@ -24,6 +24,14 @@ local lsp_on_attach = function(_, bufnr)
     end, { desc = "Actions" })
 end
 
+vim.api.nvim_create_autocmd("LspAttach", {
+    callback = function(args)
+        local bufnr = args.buf
+        map("n", "gd", "<cmd>Telescope lsp_definitions<cr>", { buffer = bufnr, desc = "LSP Go to definition" })
+        map("n", "gr", "<cmd>Telescope lsp_references<cr>", { buffer = bufnr, desc = "LSP Go to reference" })
+    end,
+})
+
 local servers = { "html", "cssls", "clangd", "ts_ls", "pyright", "markdown-oxide" }
 
 for _, lsp in ipairs(servers) do
